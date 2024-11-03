@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Karyawan</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">SIM Karyawan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="data_karyawan.html">Data Karyawan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jabatan.html">Jabatan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="divisi.html">Divisi</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Data Karyawan</h2>
+        
+        <!-- Form Input Karyawan -->
+        <form id="formKaryawan">
+            <div class="form-group">
+                <label for="namaKaryawan">Nama Karyawan</label>
+                <input type="text" class="form-control" id="namaKaryawan" placeholder="Masukkan nama karyawan" required>
+            </div>
+            <div class="form-group">
+                <label for="jabatan">Jabatan</label>
+                <select class="form-control" id="jabatan" required>
+                    <option value="">Pilih Jabatan</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Staf">Staf</option>
+                    <option value="HRD">HRD</option>
+                    <option value="IT Support">IT Support</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="divisi">Divisi</label>
+                <select class="form-control" id="divisi" required>
+                    <option value="">Pilih Divisi</option>
+                    <option value="Keuangan">Keuangan</option>
+                    <option value="Sumber Daya Manusia">Sumber Daya Manusia</option>
+                    <option value="Teknologi Informasi">Teknologi Informasi</option>
+                    <option value="Pemasaran">Pemasaran</option>
+                    <option value="Operasional">Operasional</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+
+        <!-- Tabel Data Karyawan -->
+        <h3 class="mt-4">Daftar Karyawan</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nama Karyawan</th>
+                    <th>Jabatan</th>
+                    <th>Divisi</th>
+                </tr>
+            </thead>
+            <tbody id="tabelKaryawan">
+                <!-- Data karyawan akan ditambahkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Script untuk menambahkan data karyawan ke tabel
+        document.getElementById('formKaryawan').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form dari reload
+
+            // Ambil nilai dari form
+            const namaKaryawan = document.getElementById('namaKaryawan').value;
+            const jabatan = document.getElementById('jabatan').value;
+            const divisi = document.getElementById('divisi').value;
+
+            // Tambahkan baris baru ke tabel
+            const tabel = document.getElementById('tabelKaryawan');
+            const row = tabel.insertRow();
+            row.insertCell(0).innerText = namaKaryawan;
+            row.insertCell(1).innerText = jabatan;
+            row.insertCell(2).innerText = divisi;
+
+            // Reset form
+            document.getElementById('formKaryawan').reset();
+        });
+    </script>
+</body>
+</html>

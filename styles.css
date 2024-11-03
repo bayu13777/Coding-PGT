@@ -1,0 +1,42 @@
+body {
+    background-color: #f8f9fa; /* Warna latar belakang yang lebih terang */
+}
+
+h1, h2, h3 {
+    color: #343a40; /* Warna teks */
+}
+
+.navbar {
+    background-color: #007bff; /* Warna navbar */
+}
+
+.navbar-brand, .nav-link {
+    color: red !important;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.card {
+    margin: 20px 0;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table td {
+    background-color: #ffffff;
+}
+
+.jumbotron {
+    background-color: #e9ecef; /* Warna latar belakang jumbotron */
+    border-radius: 0;
+    padding: 30px;
+}
+
+.container {
+    margin-top: 20px;
+}
